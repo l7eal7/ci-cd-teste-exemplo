@@ -18,7 +18,16 @@ jobs:
         node-version: 18
         cache: 'npm'
     - name: intalar dependencias
-        run: npm install
+      run: npm install
 
     - name: executar testes
-        run: npm test
+      run: npm test
+
+    - name: gerar relatorio allure
+      run: npm run report:generate
+    
+    - name: publicar relatorio no Gh Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
