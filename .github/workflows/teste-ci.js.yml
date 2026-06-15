@@ -3,6 +3,7 @@ name: teste CI cypress
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
  
 jobs:
   build:
@@ -15,9 +16,9 @@ jobs:
     - name: Use Node.js 
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 25.1.0
         cache: 'npm'
-    - name: intalar dependencias
+    - name: instalar dependencias
       run: npm install
 
     - name: executar testes
